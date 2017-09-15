@@ -8,17 +8,20 @@ public class Calendar {
 
 	public static void main(String[] args) {
 
+		List<Integer> list = new ArrayList<>();
 		System.out.println("반복횟수를 입력하세요.");
 		int repeat = new Scanner(System.in).nextInt();
 		System.out.println("월을 입력하세요.");
-		List<Integer> list = new ArrayList<>();
-		for(int i = 0; i < repeat; i++) {
-			int inputMonth= new Scanner(System.in).nextInt();
+		int i = 0;
+		while(i < repeat) {
+			int inputMonth = new Scanner(System.in).nextInt();
 			list.add(inputMonth);
+			i++;
 		}
-		
-		for(int i = 0; i < repeat; i++) {
-			System.out.printf("%d월은 %d일까지 있습니다.%n", list.get(i), getMonthMaxDay(list.get(i).intValue()));
+		int j = 0;
+		while(j < repeat) {
+			System.out.printf("%d월은 %d까지 있습니다.%n", list.get(j), getMonthMaxDay(list.get(j)));
+			j++;
 		}
 		System.exit(0);
 	}
