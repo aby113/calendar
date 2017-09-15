@@ -1,24 +1,26 @@
 package calendar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Calendar {
 
 	public static void main(String[] args) {
-		System.out.println("일 월 화 수 목 금 토");
-		System.out.println("---------------------------");
-		System.out.println("1 2 3 4 5 6 7");
-		System.out.println("8 9 10 11 12 13 14");
-		System.out.println("15 16 17 18 19 20 21");
-		System.out.println("22 23 24 25 26 27 28");
 
-		System.out.println("원하는 달을 입력하세요");
-		int inputMonth = new Scanner(System.in).nextInt();
-		int[] maxMonDay = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-//		System.out.printf("해당 %d 달 최대 일수는 %d 입니다", inputMonth, maxMonDay[inputMonth - 1]);
-		System.out.printf("해당 %d 월 최대 일수는 %d일 입니다", inputMonth, getMonthMaxDay(inputMonth));
-
+		System.out.println("반복횟수를 입력하세요.");
+		int repeat = new Scanner(System.in).nextInt();
+		System.out.println("월을 입력하세요.");
+		List<Integer> list = new ArrayList<>();
+		for(int i = 0; i < repeat; i++) {
+			int inputMonth= new Scanner(System.in).nextInt();
+			list.add(inputMonth);
+		}
+		
+		for(int i = 0; i < repeat; i++) {
+			System.out.printf("%d월은 %d일까지 있습니다.%n", list.get(i), getMonthMaxDay(list.get(i).intValue()));
+		}
+		System.exit(0);
 	}
 
 	public static int getMonthMaxDay(int i) {
